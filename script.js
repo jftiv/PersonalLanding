@@ -6,6 +6,7 @@ let iFrameIndex = 0;
 let iFrameSites = [
     'process/index.html',
     'bg-gen/index.html',
+    'http://robo-friends.s3-website-us-east-1.amazonaws.com/',
     // add future sites here
 ];
 

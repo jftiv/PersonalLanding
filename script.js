@@ -111,6 +111,7 @@ function cleanArr(links) {
     links.pop();
 }
 
+// Allow CSS transitions after load
 setTimeout(() => {
     container.classList.remove('css-transitions-only-after-page-load');
 }, 10);

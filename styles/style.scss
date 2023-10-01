@@ -76,6 +76,7 @@ body {
     left: 100px;
     top: 20%;
     color: $primary-light;
+    max-width: 500px;
 }
 
 .bot {
@@ -84,6 +85,7 @@ body {
     background: -webkit-linear-gradient(rgba(83, 84, 96, 1), #fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    max-width: 500px;
 
     span {
         display: inline-block;

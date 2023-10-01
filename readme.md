@@ -4,4 +4,4 @@ This personal landing page is meant to be a sandbox to explore new stuff using b
 
 Inside the iframe I hope to showcase more and more personal projects that will use more in depth full stack development works. 
 
-Currently looking to experiment with more css preprocessors.
+Switched away from sass indentation format to more standard scss format. Exp with Live Sass Compiler extension rather than using runtime compiler to keep project super simple. 

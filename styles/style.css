@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:600i,700i");
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
+
 body {
   margin: 0;
   height: 100%;
@@ -47,7 +48,7 @@ body {
 .bot {
   padding-top: 1.2em;
   font-weight: 700;
-  background: -webkit-linear-gradient(#535460, #fff);
+  background: -webkit-linear-gradient(rgb(83, 84, 96), #fff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -114,7 +115,7 @@ body {
 }
 
 .cs:hover {
-  background-color: #2e435c;
+  background-color: #193549;
   border-radius: 7px;
   width: 100%;
   cursor: pointer;
@@ -129,7 +130,7 @@ body {
 }
 
 .ex:hover {
-  background-color: #2e435c;
+  background-color: #193549;
   border-radius: 7px;
   width: 100%;
   cursor: pointer;
@@ -144,7 +145,7 @@ body {
 }
 
 .li:hover {
-  background-color: #2e435c;
+  background-color: #193549;
   border-radius: 7px;
   width: 100%;
   cursor: pointer;
@@ -157,12 +158,12 @@ body {
   width: 450px;
   height: 500px;
   border-radius: 7px;
-  background-color: #f2f1f8;
+  background-color: rgb(242, 241, 248);
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
   padding: 20px;
   font-family: "Quicksand", sans-serif;
   font-size: 1.5em;
-  color: #f2f1f8;
+  color: rgb(242, 241, 248);
   transition: all 1s;
   transition-property: all 1s;
 }
@@ -187,7 +188,7 @@ body {
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
-  grid-column: 4/5;
+  grid-column: 3;
 }
 
 #return {
@@ -198,11 +199,10 @@ body {
 
 @media (max-width: 1242px) {
   .bg-text {
-    color: #f7f7f9;
+    color: rgb(247, 247, 249);
   }
-
   .bot {
-    background: #f7f7f9;
+    background: rgb(247, 247, 249);
   }
 }
 @media (max-width: 500px) {
@@ -210,6 +210,4 @@ body {
     width: 100%;
     height: 100VH;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

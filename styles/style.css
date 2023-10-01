@@ -1,5 +1,20 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:600i,700i");
-@import url("https://fonts.googleapis.com/css?family=Quicksand");
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/Quicksand-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-SemiBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+}
+.css-transitions-only-after-page-load * {
+  transition: none !important;
+}
+
 body {
   margin: 0;
   height: 100%;
@@ -34,7 +49,7 @@ body {
 .bg-text {
   position: absolute;
   z-index: -1;
-  font-family: Montserrat, sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 2.5em;
   text-align: end;
@@ -47,13 +62,31 @@ body {
 .bot {
   padding-top: 1.2em;
   font-weight: 700;
-  background: -webkit-linear-gradient(#535460, #fff);
+  background: -webkit-linear-gradient(rgb(83, 84, 96), #fff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.bot span {
+  display: inline-block;
+}
+
+.body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.body-container .mobile-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #ffc600;
+  text-align: center;
+  margin-bottom: 20px;
+  visibility: hidden;
+}
 
 /* Content box and contained elements design */
-.content-box {
+.body-of-work {
   display: grid;
   grid-template-rows: 2 repeat(4, 1fr);
   width: 450px;
@@ -66,19 +99,32 @@ body {
   font-size: 1.5em;
   color: #fff;
 }
-.content-box a:link {
+.body-of-work a:link {
   font-family: "Quicksand", sans-serif;
   color: #ffc600;
   text-decoration: none;
   transition: all 0.5s;
 }
-.content-box a:hover {
+.body-of-work a:hover,
+.body-of-work a:visited:hover {
   color: #fff;
 }
-.content-box a:visited {
+.body-of-work a:visited {
   color: #ffc600;
 }
-.content-box a:visited:hover {
+.body-of-work .link {
+  display: flex;
+  align-items: center;
+  transition: all 1s;
+  width: 200px;
+}
+.body-of-work .link:hover {
+  background-color: #193549;
+  border-radius: 7px;
+  width: 100%;
+  cursor: pointer;
+}
+.body-of-work .link:hover a {
   color: #fff;
 }
 
@@ -90,79 +136,19 @@ body {
   font-weight: 400;
 }
 
-.git {
-  display: flex;
-  align-items: center;
-  grid-row: 3;
-  transition: all 1s;
-  width: 100px;
-}
-
-.git:hover {
-  background-color: #193549;
-  border-radius: 7px;
-  width: 100%;
-  cursor: pointer;
-}
-
-.cs {
-  display: flex;
-  align-items: center;
-  grid-row: 4;
-  transition: all 1s;
-  width: 100px;
-}
-
-.cs:hover {
-  background-color: #2e435c;
-  border-radius: 7px;
-  width: 100%;
-  cursor: pointer;
-}
-
-.ex {
-  display: flex;
-  align-items: center;
-  grid-row: 5;
-  transition: all 1s;
-  width: 200px;
-}
-
-.ex:hover {
-  background-color: #2e435c;
-  border-radius: 7px;
-  width: 100%;
-  cursor: pointer;
-}
-
-.li {
-  display: flex;
-  align-items: center;
-  grid-row: 6;
-  transition: all 1s;
-  width: 100px;
-}
-
-.li:hover {
-  background-color: #2e435c;
-  border-radius: 7px;
-  width: 100%;
-  cursor: pointer;
-}
-
 /* Content Box 2 Design */
-.content-box-2 {
+.iframe-header {
   display: none;
   grid-template-rows: 2 repeat(4, 1fr);
   width: 450px;
   height: 500px;
   border-radius: 7px;
-  background-color: #f2f1f8;
+  background-color: rgb(242, 241, 248);
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
   padding: 20px;
   font-family: "Quicksand", sans-serif;
   font-size: 1.5em;
-  color: #f2f1f8;
+  color: rgb(242, 241, 248);
   transition: all 1s;
   transition-property: all 1s;
 }
@@ -187,7 +173,7 @@ body {
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
-  grid-column: 4/5;
+  grid-column: 3;
 }
 
 #return {
@@ -196,13 +182,15 @@ body {
   cursor: pointer;
 }
 
-@media (max-width: 1242px) {
+@media (max-width: 1425px) {
   .bg-text {
-    color: #f7f7f9;
+    visibility: hidden;
   }
-
   .bot {
-    background: #f7f7f9;
+    visibility: hidden;
+  }
+  .body-container .mobile-name {
+    visibility: visible;
   }
 }
 @media (max-width: 500px) {
@@ -210,6 +198,4 @@ body {
     width: 100%;
     height: 100VH;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

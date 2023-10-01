@@ -1,36 +1,46 @@
+// Selectors
+const bodyContainer = document.getElementsByClassName("body-container")[0];
+const contentBox = document.getElementsByClassName("body-of-work")[0];
+const contentBox2 = document.getElementsByClassName("iframe-header")[0];
+const container = document.getElementsByClassName("container")[0];
+const container2 = document.getElementsByClassName("container2")[0];
 const examples = document.getElementsByClassName("ex")[0];
 const goBackHome = document.getElementById("return");
 const backward = document.getElementsByClassName("backward")[0];
 const forward = document.getElementsByClassName("forward")[0];
-let iFrameIndex = 0;
-let iFrameSites = [
+const iFrame = document.getElementsByClassName("iframe")[0];
+const title = contentBox.firstElementChild;
+
+// Global Data
+const iFrameIndex = 0;
+const iFrameSites = [
+    'http://secret-santa.net',
     'process/index.html',
     'bg-gen/index.html',
     'http://robo-friends.s3-website-us-east-1.amazonaws.com/',
     // add future sites here
 ];
+const color_primaryDark = "#35434d";
+const color_primaryLight = "#ffc600";
+const color_ultraDark = "#15232D";
+const color_compBlue = "#193549";
+const color_white = "#fff";
 
+// JS Event Listeners
 examples.addEventListener("click", changeToFrame);
 goBackHome.addEventListener("click", returnHome);
 backward.addEventListener("click", previousExample);
 forward.addEventListener("click", nextExample);
 
+// Actions
 function changeToFrame() {
-    const contentBox = document.getElementsByClassName("content-box")[0];
-    const contentBox2 = document.getElementsByClassName("content-box-2")[0];
-    const container = document.getElementsByClassName("container")[0];
-    const container2 = document.getElementsByClassName("container2")[0];
-    const title = contentBox.firstElementChild;
     let links = [title];
-
+    iFrame.src = iFrameSites[0];
     cleanArr(links);
 
-    title.style.color = "rgb(242, 241, 248)";
-    links.forEach(element => {
-        element.style.color = "rgb(242, 241, 248)"
-    })
+    changeLinkColors(links, 'iframe');
     contentBox2.style.display = "grid";
-    contentBox.style.display = "none";
+    bodyContainer.style.display = "none";
     setTimeout(() => {
         contentBox2.style.height = "100px";
         contentBox2.style.color = "rgb(83, 84, 96)";
@@ -44,13 +54,7 @@ function changeToFrame() {
 }; 
 
 function returnHome() {
-    const contentBox = document.getElementsByClassName("content-box")[0];
-    const contentBox2 = document.getElementsByClassName("content-box-2")[0];
-    const container = document.getElementsByClassName("container")[0];
-    const container2 = document.getElementsByClassName("container2")[0];
-    const title = contentBox.firstElementChild;
     let links = [title];
-
     cleanArr(links);
 
     setTimeout(() => {
@@ -61,26 +65,39 @@ function returnHome() {
         contentBox2.style.position = "";
         if (window.innerWidth <= 500) contentBox2.style.height = "100VH";
         else contentBox2.style.height = "500px";
-        contentBox.style.display = "grid";
+        bodyContainer.style.display = "grid";
         contentBox2.style.display = "none";
-        setTimeout(() => {
-            title.style.color = "rgb(83, 84, 96)";
-            links.forEach(element => {
-                element.style.color = "rgb(83, 84, 96)"
-            })
-        }, 400)
+        changeLinkColors(links, 'home');
     }, 300)
     
 }
 
+function changeLinkColors(links, loc) {
+    if (loc === 'home') {
+        setTimeout(() => {
+            title.style.color = color_white;
+            links.forEach(element => {
+                element.style.color = color_primaryLight;
+            });
+        }, 200);
+    }
+    else if (loc === 'iframe') {
+        title.style.color = color_ultraDark;
+        // links.forEach(element => {
+        //     element.style.color = "rgb(242, 241, 248)";
+        // });
+    }
+    else {
+        console.log(`Error: loc of ${loc} is not valid.`);
+    }
+}
+
 function previousExample() {
-    const iFrame = document.getElementsByClassName("iframe")[0];
     let source = iFrameIndex === 0 ? iFrameSites[iFrameIndex] : iFrameSites[--iFrameIndex];
     iFrame.src = source;
 }
 
 function nextExample() {
-    const iFrame = document.getElementsByClassName("iframe")[0];
     let source = iFrameIndex === (iFrameSites.length - 1) ? iFrameSites[iFrameIndex] : iFrameSites[++iFrameIndex];
     iFrame.src = source;
 }
@@ -93,3 +110,8 @@ function cleanArr(links) {
     links.shift();
     links.pop();
 }
+
+// Allow CSS transitions after load
+setTimeout(() => {
+    container.classList.remove('css-transitions-only-after-page-load');
+}, 10);

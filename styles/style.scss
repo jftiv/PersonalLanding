@@ -1,0 +1,235 @@
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-SemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+}
+
+$primary-font: 'Quicksand', sans-serif;
+$sec-font: 'Montserrat', sans-serif;
+$primary-dark: #35434d;
+$primary-light: #ffc600;
+$ultra-dark: #15232D;
+$comp-blue: #193549;
+$white: #fff;
+
+// avoid weird font stuff on page load
+.css-transitions-only-after-page-load {
+    * {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -ms-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
+    }
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: $primary-dark;
+}
+
+
+.container {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+    transition-property: all 1s;
+}
+
+.container2 {
+    margin: 0;
+    height: 0;
+    width: 100%;
+}
+
+.iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+/* Left graphic layout and design */
+.bg-text {
+    position: absolute;
+    z-index: -1;
+    font-family: $sec-font;
+    font-weight: 600;
+    font-size: 2.5em;
+    text-align: end;
+    width: 25%;
+    left: 100px;
+    top: 20%;
+    color: $primary-light;
+}
+
+.bot {
+    padding-top: 1.2em;
+    font-weight: 700;
+    background: -webkit-linear-gradient(rgba(83, 84, 96, 1), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    span {
+        display: inline-block;
+    }
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .mobile-name {
+        font-family: $sec-font;
+        font-size: 2.5em;
+        font-weight: 600;
+        color: $primary-light;
+        text-align: center;
+        margin-bottom: 20px;
+        visibility: hidden;
+    }
+}
+
+/* Content box and contained elements design */
+.body-of-work {
+    display: grid;
+    grid-template-rows: 2 repeat(4, 1fr);
+    width: 450px;
+    height: 500px;
+    border-radius: 7px;
+    background-color: $ultra-dark;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-family: $primary-font;
+    font-size: 1.5em;
+    color: $white;
+
+    a:link {
+        font-family: $primary-font;
+        color: $primary-light;
+        text-decoration: none;
+        transition: all 0.5s;
+    }
+
+    a:hover,
+    a:visited:hover {
+        color: $white;
+    }
+
+    a:visited {
+        color: $primary-light;
+    }
+
+    .link {
+        display: flex;
+        align-items: center;
+        transition: all 1s;
+        width: 200px;
+    }
+
+    .link:hover {
+        background-color: $comp-blue;
+        border-radius: 7px;
+        width: 100%;
+        cursor: pointer;
+
+        a {
+            color: $white;
+        }
+    }
+}
+
+.title {
+    display: flex;
+    align-items: end;
+    grid-row: 1 / 3;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+/* Content Box 2 Design */
+.iframe-header {
+    display: none;
+    grid-template-rows: 2 repeat(4, 1fr);;
+    width: 450px;
+    height: 500px;
+    border-radius: 7px;
+    background-color: rgb(242, 241, 248);
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-family: $primary-font;
+    font-size: 1.5em;
+    color: rgb(242, 241, 248);
+    transition: all 1s;
+    transition-property: all 1s;
+}
+
+.new-content {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+
+.backward {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+    grid-column: 1;
+}
+
+.forward {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    grid-column: 3;
+}
+
+#return {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+@media (max-width: 1425px) {
+    .bg-text {
+        visibility: hidden;
+    }
+
+    .bot {
+        visibility: hidden;
+    }
+
+    .body-container {
+        .mobile-name {
+            visibility: visible;
+        }
+    }
+}
+
+
+@media (max-width: 500px) {
+    .content-box {
+        width: 100%;
+        height: 100VH;
+    }
+}

@@ -1,13 +1,37 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:600i,700i');
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-SemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+}
 
 $primary-font: 'Quicksand', sans-serif;
-$sec-font: Montserrat, sans-serif;
+$sec-font: 'Montserrat', sans-serif;
 $primary-dark: #35434d;
 $primary-light: #ffc600;
 $ultra-dark: #15232D;
 $comp-blue: #193549;
 $white: #fff;
+
+// avoid weird font stuff on page load
+.css-transitions-only-after-page-load {
+    * {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -ms-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
+    }
+}
 
 body {
     margin: 0;
@@ -60,10 +84,30 @@ body {
     background: -webkit-linear-gradient(rgba(83, 84, 96, 1), #fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    span {
+        display: inline-block;
+    }
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .mobile-name {
+        font-family: $sec-font;
+        font-size: 2.5em;
+        font-weight: 600;
+        color: $primary-light;
+        text-align: center;
+        margin-bottom: 20px;
+        visibility: hidden;
+    }
 }
 
 /* Content box and contained elements design */
-.content-box {
+.body-of-work {
     display: grid;
     grid-template-rows: 2 repeat(4, 1fr);
     width: 450px;
@@ -83,7 +127,8 @@ body {
         transition: all 0.5s;
     }
 
-    a:hover {
+    a:hover,
+    a:visited:hover {
         color: $white;
     }
 
@@ -91,8 +136,22 @@ body {
         color: $primary-light;
     }
 
-    a:visited:hover {
-        color: $white;
+    .link {
+        display: flex;
+        align-items: center;
+        transition: all 1s;
+        width: 200px;
+    }
+
+    .link:hover {
+        background-color: $comp-blue;
+        border-radius: 7px;
+        width: 100%;
+        cursor: pointer;
+
+        a {
+            color: $white;
+        }
     }
 }
 
@@ -104,68 +163,8 @@ body {
     font-weight: 400;
 }
 
-.git {
-    display: flex;
-    align-items: center;
-    grid-row: 3;
-    transition: all 1s;
-    width: 100px;
-}
-
-.git:hover {
-    background-color: $comp-blue;
-    border-radius: 7px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.cs {
-    display: flex;
-    align-items: center;
-    grid-row: 4;
-    transition: all 1s;
-    width: 100px;
-}
-
-.cs:hover {
-    background-color: $comp-blue;
-    border-radius: 7px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.ex {
-    display: flex;
-    align-items: center;
-    grid-row: 5;
-    transition: all 1s;
-    width: 200px;
-}
-
-.ex:hover {
-    background-color: $comp-blue;
-    border-radius: 7px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.li {
-    display: flex;
-    align-items: center;
-    grid-row: 6;
-    transition: all 1s;
-    width: 100px;
-}
-
-.li:hover {
-    background-color: $comp-blue;
-    border-radius: 7px;
-    width: 100%;
-    cursor: pointer;
-}
-
 /* Content Box 2 Design */
-.content-box-2 {
+.iframe-header {
     display: none;
     grid-template-rows: 2 repeat(4, 1fr);;
     width: 450px;
@@ -211,14 +210,19 @@ body {
     cursor: pointer;
 }
 
-
-@media (max-width: 1242px) {
+@media (max-width: 1425px) {
     .bg-text {
-        color: rgb(247, 247, 249);
+        visibility: hidden;
     }
 
     .bot {
-        background: rgb(247, 247, 249);
+        visibility: hidden;
+    }
+
+    .body-container {
+        .mobile-name {
+            visibility: visible;
+        }
     }
 }
 

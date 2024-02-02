@@ -12,9 +12,9 @@ const iFrame = document.getElementsByClassName("iframe")[0];
 const title = contentBox.firstElementChild;
 
 // Global Data
-const iFrameIndex = 0;
-const iFrameSites = [
-    'http://secret-santa.net',
+let iFrameIndex = 0;
+let iFrameSites = [
+    'https://secret-santa.net',
     'process/index.html',
     'bg-gen/index.html',
     'http://robo-friends.s3-website-us-east-1.amazonaws.com/',

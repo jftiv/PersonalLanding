@@ -212,6 +212,53 @@ body {
     cursor: pointer;
 }
 
+// blog styles
+.blog-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100VH;
+    width: 100%;
+    background-color: $primary-dark;
+}
+
+.blog-frame {
+    margin: 15px 0 0 15px;
+    height: 100VH;
+    width: 75%;
+    overflow: scroll;
+}
+
+.links {
+    margin: 15px 15px 0 0;
+    width: 25%;
+    display: inline-block;
+    text-align: right;
+
+    a::after {
+        content: '\a';
+        white-space: pre;
+    }
+
+    a, a:link, a:visited {
+        text-decoration: none;
+        color: $primary-light;
+        font-family: $primary-font;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .previous {
+        text-align: center;
+        font-family: $primary-font;
+        color: $white;
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+}
+
 @media (max-width: 1425px) {
     .bg-text {
         visibility: hidden;

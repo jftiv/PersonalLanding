@@ -184,6 +184,48 @@ body {
   cursor: pointer;
 }
 
+.blog-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100VH;
+  width: 100%;
+  background-color: #35434d;
+}
+
+.blog-frame {
+  margin: 15px 0 0 15px;
+  height: 100VH;
+  width: 75%;
+  overflow: scroll;
+}
+
+.links {
+  margin: 15px 15px 0 0;
+  width: 25%;
+  display: inline-block;
+  text-align: right;
+}
+.links a::after {
+  content: "\a";
+  white-space: pre;
+}
+.links a, .links a:link, .links a:visited {
+  text-decoration: none;
+  color: #ffc600;
+  font-family: "Quicksand", sans-serif;
+}
+.links a:hover {
+  text-decoration: underline;
+}
+.links .previous {
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
 @media (max-width: 1425px) {
   .bg-text {
     visibility: hidden;
